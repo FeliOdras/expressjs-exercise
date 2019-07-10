@@ -5,6 +5,10 @@ const myLogger = (req, res, next) => {
   console.log("LOGGED");
   next();
 };
+const requestTime = (req, res, next) => {
+  req.requestTime = Date.now();
+  next();
+};
 
 app.use(myLogger);
 app.get("/", (req, res) => res.send("Hello World!"));
